@@ -155,12 +155,14 @@
           Meshteq Sdn Bhd is a technology subsidiary under <strong>Cahaya Hornbill Sdn Bhd</strong>.
           </p>
         </div>
-        <form class="contact-form" name="contact" method="post" data-netlify="true">
-          <input type="hidden" name="form-name" value="contact">
-          <label>Full Name <input name="name" required /></label>
-          <label>Email <input name="email" type="email" required /></label>
-          <label>Message <textarea name="message" rows="5" required></textarea></label>
-          <button class="btn primary" type="submit">Send</button>
+          <form action="https://formspree.io/f/xnjjnbor" method="POST">
+            <input type="text" name="name" placeholder="Your name" required>
+            <input type="email" name="email" placeholder="Your email" required>
+            <textarea name="message" placeholder="Your message" required></textarea>
+          
+            <!-- optional but recommended -->
+            <input type="hidden" name="_subject" value="New contact from Meshteq website">
+            <button type="submit">Send</button>
         </form>
       </div>
     </section>
