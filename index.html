@@ -149,23 +149,32 @@
           <p>For partnerships, pilots or investment discussions, reach us here:</p>
           <ul class="contact">
             <li><a href="mailto:business@meshteq.com">business@meshteq.com</a></li>
-            <li><a href="tel:+6012 8500280">+6012 8500280</a></li>
+            <li><a href="tel:+60128500280">+60 12 850 0280</a></li>
           </ul>
           <p class="parent-note">
           Meshteq Sdn Bhd is a technology subsidiary under <strong>Cahaya Hornbill Sdn Bhd</strong>.
           </p>
         </div>
-          <form action="https://formspree.io/f/xnjjnbor" method="POST">
-            <label>
-            Your email:
-            <input type="email" name="email">
-            </label>
-            <label>
-            Your message:
-            <textarea name="message"></textarea>
-            </label>
-            <!-- your other form fields go here -->
-            <button type="submit">Send</button>
+        <form class="contact-form" action="https://formspree.io/f/xnjjnbor" method="POST">
+          <div class="field">
+            <label for="contact-name">Your name</label>
+            <input id="contact-name" type="text" name="name" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="contact-email">Your email</label>
+            <input id="contact-email" type="email" name="email" autocomplete="email" required>
+          </div>
+          <div class="field">
+            <label for="contact-subject">Subject</label>
+            <input id="contact-subject" type="text" name="subject" required>
+          </div>
+        
+          <div class="field">
+            <label for="contact-message">Message</label>
+            <textarea id="contact-message" name="message" required></textarea>
+          </div>
+        
+          <button class="btn" type="submit">Send</button>
         </form>
       </div>
     </section>
