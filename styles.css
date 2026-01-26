@@ -209,3 +209,41 @@ body{
   .cards.three{ grid-template-columns:1fr; }
   .hero{ padding:56px 0; }
 }
+
+/* =========================
+   9) partner logo
+   ========================= */
+.partner-logos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+  align-items: center;
+}
+
+.partner-logo-item {
+  text-align: center;
+}
+
+.partner-logo-item img {
+  max-width: 160px;
+  max-height: 80px;
+  width: auto;
+  height: auto;
+  margin: 0 auto 0.75rem;
+  display: block;
+  filter: grayscale(100%);
+  opacity: 0.85;
+}
+
+.partner-logo-item img:hover {
+  filter: none;
+  opacity: 1;
+}
+
+.partner-role {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--muted, #6b7280);
+}
+
