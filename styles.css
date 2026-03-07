@@ -1,40 +1,67 @@
-/* Meshteq minimal styles - responsive, accessible */
+/* =================================================
+Meshteq Global Styles
+Minimal SaaS Layout (Supabase-style inspired)
+================================================= */
 
 /* =========================
-   1) Design Tokens
-   ========================= */
+1. Design Tokens
+========================= */
+
 :root{
   --bg:#0f172a;
-  --bg-alt:#0b1227;
-  --text:#0b1227;
-  --muted:#475569;
-  --card:#ffffff;
+  --bg-dark:#020617;
+  --bg-light:#f8fafc;
+
+  --text:#0f172a;
+  --muted:#64748b;
+
   --brand:#2563eb;
   --brand-2:#22c55e;
+
+  --card:#ffffff;
   --border:#e5e7eb;
   --input-border:#cbd5e1;
-
-  /* Trust page colors */
-  --trust-bg:#f8fafc;
-  --trust-section:#ffffff;
 }
 
+
 /* =========================
-   2) Base / Reset
-   ========================= */
-*{ box-sizing:border-box; }
-html,body{ margin:0; padding:0; }
+2. Reset
+========================= */
+
+*{
+  box-sizing:border-box;
+}
+
+html,body{
+  margin:0;
+  padding:0;
+}
 
 body{
-  font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial,'Noto Sans',sans-serif;
-  line-height:1.6;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial;
   color:var(--text);
-  background:#fff;
+  line-height:1.6;
+  background:#ffffff;
 }
 
 h1,h2,h3{
+  margin-top:0;
   line-height:1.3;
 }
+
+a{
+  color:var(--brand);
+  text-decoration:none;
+}
+
+a:hover{
+  text-decoration:underline;
+}
+
+
+/* =========================
+3. Layout Container
+========================= */
 
 .container{
   max-width:1120px;
@@ -42,14 +69,16 @@ h1,h2,h3{
   padding:0 20px;
 }
 
+
 /* =========================
-   3) Header / Navigation
-   ========================= */
+4. Header
+========================= */
+
 .site-header{
   position:sticky;
   top:0;
   z-index:10;
-  background:#fff;
+  background:#ffffff;
   border-bottom:1px solid var(--border);
 }
 
@@ -64,16 +93,17 @@ h1,h2,h3{
   display:flex;
   align-items:center;
   gap:10px;
-  text-decoration:none;
-  color:var(--text);
   font-weight:700;
+  color:var(--text);
 }
 
-.logo{ width:28px; height:28px; }
+.logo{
+  width:28px;
+  height:28px;
+}
 
 .nav a{
   margin-left:18px;
-  text-decoration:none;
   color:var(--muted);
 }
 
@@ -81,13 +111,19 @@ h1,h2,h3{
   color:var(--text);
 }
 
+
 /* =========================
-   4) Hero / Buttons
-   ========================= */
+5. Hero
+========================= */
+
 .hero{
-  background:linear-gradient(180deg,#0f172a 0%,#111827 100%);
-  color:#fff;
+  background:linear-gradient(180deg,#0f172a 0%,#020617 100%);
+  color:#ffffff;
   padding:80px 0;
+}
+
+.hero h1{
+  font-size:42px;
 }
 
 .hero .lead{
@@ -95,44 +131,70 @@ h1,h2,h3{
   color:#cbd5e1;
 }
 
-.cta-row{
-  display:flex;
-  gap:12px;
-  margin-top:22px;
-}
-
-.btn{
-  display:inline-block;
-  padding:12px 18px;
-  border-radius:10px;
-  text-decoration:none;
-  border:1px solid transparent;
-  cursor:pointer;
-  font-weight:600;
-}
-
-.btn.primary{
-  background:var(--brand);
-  color:#fff;
-}
-
-.btn.ghost{
-  background:transparent;
-  border-color:#334155;
-  color:#e2e8f0;
-}
 
 /* =========================
-   5) Sections / Layout / Cards
-   ========================= */
-.section{ padding:64px 0; }
-.section.alt{ background:#f8fafc; }
+6. Sections
+========================= */
 
-.grid.two{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:28px;
+.section{
+  padding:64px 0;
 }
+
+.section.alt{
+  background:var(--bg-light);
+}
+
+
+/* =========================
+7. Security Grid (Trust Page)
+========================= */
+
+.security-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:36px;
+  margin-top:40px;
+}
+
+.security-card{
+
+  padding:26px;
+  border-radius:14px;
+
+  border:1px solid var(--border);
+  background:var(--card);
+
+  transition:all 0.2s ease;
+
+}
+
+.security-card:hover{
+
+  transform:translateY(-4px);
+
+  box-shadow:
+  0 10px 24px rgba(0,0,0,0.06);
+
+}
+
+.security-card h3{
+
+  font-size:18px;
+  margin-bottom:10px;
+
+}
+
+.security-card p{
+
+  margin:0;
+  color:var(--muted);
+
+}
+
+
+/* =========================
+8. Standard Card Layout
+========================= */
 
 .cards.three{
   display:grid;
@@ -142,145 +204,168 @@ h1,h2,h3{
 }
 
 .card{
-  background:var(--card);
+
+  background:#ffffff;
   border:1px solid var(--border);
-  border-radius:14px;
-  padding:18px;
-  box-shadow:0 1px 2px rgba(0,0,0,0.04);
-}
-
-.checklist, .facts, .bullets, .contact{
-  padding-left:18px;
-}
-
-.checklist li, .bullets li{
-  margin:6px 0;
-}
-
-.note{
-  background:#eef2ff;
-  border:1px solid #c7d2fe;
-  border-radius:14px;
-  padding:18px;
-}
-
-/* =========================
-   6) Trust Center Styling
-   ========================= */
-
-/* Trust page wrapper */
-.trust{
-  background:var(--trust-bg);
-}
-
-/* Trust sections */
-.trust-section{
-  background:var(--trust-section);
-  border:1px solid var(--border);
-  border-radius:14px;
-  padding:32px;
-  margin-bottom:32px;
-}
-
-.trust-section h2{
-  margin-top:0;
-}
-
-/* Security policies list */
-.trust-policies{
-  list-style:none;
-  padding:0;
-}
-
-.trust-policies li{
-  margin-bottom:10px;
-}
-
-.trust-policies a{
-  text-decoration:none;
-  color:var(--brand);
-  font-weight:500;
-}
-
-.trust-policies a:hover{
-  text-decoration:underline;
-}
-
-/* Infrastructure grid */
-.infrastructure-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:16px;
-}
-
-.infrastructure-item{
-  background:#fff;
-  border:1px solid var(--border);
-  border-radius:10px;
-  padding:14px;
-}
-
-/* Security contact box */
-.security-contact{
-  background:#eef2ff;
-  border:1px solid #c7d2fe;
   border-radius:14px;
   padding:20px;
-  font-weight:500;
+
+  box-shadow:0 1px 2px rgba(0,0,0,0.05);
+
 }
 
+
 /* =========================
-   7) Contact Form
-   ========================= */
+9. Lists
+========================= */
+
+.bullets{
+  padding-left:20px;
+}
+
+.bullets li{
+  margin:8px 0;
+}
+
+
+/* =========================
+10. Note / Highlight Box
+========================= */
+
+.note{
+
+  background:#eef2ff;
+  border:1px solid #c7d2fe;
+
+  border-radius:14px;
+
+  padding:22px;
+
+}
+
+
+/* =========================
+11. Contact Form
+========================= */
+
 .contact-form{
-  background:#fff;
+
+  background:#ffffff;
   border:1px solid var(--border);
   border-radius:14px;
+
   padding:18px;
 
   display:grid;
   grid-template-columns:1fr;
   gap:14px;
-}
 
-.contact-form label{
-  display:block;
-  gap:6px;
 }
 
 .contact-form input,
 .contact-form textarea{
+
   width:100%;
+
   padding:12px 14px;
+
   border:1px solid var(--input-border);
   border-radius:10px;
+
   font:inherit;
-  box-sizing:border-box;
+
 }
 
 .contact-form textarea{
+
   min-height:120px;
   resize:vertical;
+
 }
 
+
 /* =========================
-   8) Footer
-   ========================= */
-.site-footer{
-  border-top:1px solid var(--border);
-  padding:28px 0;
-  background:#fff;
+12. Partner Logo Grid
+========================= */
+
+.partner-logos{
+
+  display:grid;
+
+  grid-template-columns:
+  repeat(auto-fit,minmax(160px,1fr));
+
+  gap:2rem;
+
+  margin-top:2rem;
+
+  align-items:center;
+
+}
+
+.partner-logo-item{
+
+  text-align:center;
+
+}
+
+.partner-logo-item img{
+
+  max-width:160px;
+  max-height:80px;
+
+  width:auto;
+  height:auto;
+
+  margin:0 auto 0.75rem;
+
+  display:block;
+
+  filter:grayscale(100%);
+  opacity:0.85;
+
+}
+
+.partner-logo-item img:hover{
+
+  filter:none;
+  opacity:1;
+
+}
+
+.partner-role{
+
+  display:block;
+
+  font-size:0.85rem;
+
   color:var(--muted);
+
 }
 
-/* =========================
-   9) Responsive
-   ========================= */
-@media (max-width:900px){
 
-  .grid.two{
-    grid-template-columns:1fr;
-  }
+/* =========================
+13. Footer
+========================= */
+
+.site-footer{
+
+  border-top:1px solid var(--border);
+
+  padding:28px 0;
+
+  background:#ffffff;
+
+  color:var(--muted);
+
+}
+
+
+/* =========================
+14. Responsive
+========================= */
+
+@media (max-width:900px){
 
   .cards.three{
     grid-template-columns:1fr 1fr;
@@ -302,41 +387,4 @@ h1,h2,h3{
     padding:56px 0;
   }
 
-}
-
-/* =========================
-   10) Partner Logo Grid
-   ========================= */
-.partner-logos{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
-  gap:2rem;
-  margin-top:2rem;
-  align-items:center;
-}
-
-.partner-logo-item{
-  text-align:center;
-}
-
-.partner-logo-item img{
-  max-width:160px;
-  max-height:80px;
-  width:auto;
-  height:auto;
-  margin:0 auto 0.75rem;
-  display:block;
-  filter:grayscale(100%);
-  opacity:0.85;
-}
-
-.partner-logo-item img:hover{
-  filter:none;
-  opacity:1;
-}
-
-.partner-role{
-  display:block;
-  font-size:0.85rem;
-  color:var(--muted);
 }
