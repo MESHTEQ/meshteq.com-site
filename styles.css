@@ -232,42 +232,39 @@ a:hover{
 
 
 /* =========================
-11. Contact Form
+11. Contact Form (FIXED ALIGNMENT)
 ========================= */
 
-.contact-form{
-
-  background:#ffffff;
-  border:1px solid var(--border);
-  border-radius:14px;
-
-  padding:18px;
-
-  display:grid;
-  grid-template-columns:1fr;
-  gap:14px;
-
-}
-
-.contact-form input,
-.contact-form textarea{
-
-  width:100%;
-
-  padding:12px 14px;
-
-  border:1px solid var(--input-border);
-  border-radius:10px;
-
-  font:inherit;
-
-}
-
-.contact-form textarea{
-
-  min-height:120px;
-  resize:vertical;
-
+.contact-form{ 
+  background:#fff; 
+  border:1px solid var(--border); 
+  border-radius:14px; 
+  padding:18px; 
+  /* Keep it strict and consistent */ 
+  display:grid; 
+  grid-template-columns:1fr; 
+  gap:14px; } 
+/* Labels should not influence input width */ 
+.contact-form label{ 
+  display:block; 
+  gap:6px; 
+  /* harmless if browser ignores, kept from your original intent 
+  */ 
+} 
+/* Make ALL fields full width and consistent */ 
+.contact-form input, 
+.contact-form textarea{ 
+  width:100%; 
+  padding:12px 14px; 
+  border:1px solid var(--input-border); 
+  border-radius:10px; 
+  font:inherit; 
+  box-sizing:border-box; 
+} 
+/* Make textarea visually consistent and professional */ 
+.contact-form textarea{ 
+  min-height:120px; 
+  resize:vertical; 
 }
 
 
