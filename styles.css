@@ -4,15 +4,19 @@
    1) Design Tokens
    ========================= */
 :root{
-  --bg:#0f172a;         /* slate-900 */
-  --bg-alt:#0b1227;     /* darker slate */
-  --text:#0b1227;       /* dark */
-  --muted:#475569;      /* slate-600 */
+  --bg:#0f172a;
+  --bg-alt:#0b1227;
+  --text:#0b1227;
+  --muted:#475569;
   --card:#ffffff;
-  --brand:#2563eb;      /* blue-600 */
-  --brand-2:#22c55e;    /* green-500 */
+  --brand:#2563eb;
+  --brand-2:#22c55e;
   --border:#e5e7eb;
   --input-border:#cbd5e1;
+
+  /* Trust page colors */
+  --trust-bg:#f8fafc;
+  --trust-section:#ffffff;
 }
 
 /* =========================
@@ -26,6 +30,10 @@ body{
   line-height:1.6;
   color:var(--text);
   background:#fff;
+}
+
+h1,h2,h3{
+  line-height:1.3;
 }
 
 .container{
@@ -68,7 +76,10 @@ body{
   text-decoration:none;
   color:var(--muted);
 }
-.nav a:hover{ color:var(--text); }
+
+.nav a:hover{
+  color:var(--text);
+}
 
 /* =========================
    4) Hero / Buttons
@@ -138,8 +149,13 @@ body{
   box-shadow:0 1px 2px rgba(0,0,0,0.04);
 }
 
-.checklist, .facts, .bullets, .contact{ padding-left:18px; }
-.checklist li, .bullets li{ margin:6px 0; }
+.checklist, .facts, .bullets, .contact{
+  padding-left:18px;
+}
+
+.checklist li, .bullets li{
+  margin:6px 0;
+}
 
 .note{
   background:#eef2ff;
@@ -149,7 +165,72 @@ body{
 }
 
 /* =========================
-   6) Contact Form (FIXED ALIGNMENT)
+   6) Trust Center Styling
+   ========================= */
+
+/* Trust page wrapper */
+.trust{
+  background:var(--trust-bg);
+}
+
+/* Trust sections */
+.trust-section{
+  background:var(--trust-section);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:32px;
+  margin-bottom:32px;
+}
+
+.trust-section h2{
+  margin-top:0;
+}
+
+/* Security policies list */
+.trust-policies{
+  list-style:none;
+  padding:0;
+}
+
+.trust-policies li{
+  margin-bottom:10px;
+}
+
+.trust-policies a{
+  text-decoration:none;
+  color:var(--brand);
+  font-weight:500;
+}
+
+.trust-policies a:hover{
+  text-decoration:underline;
+}
+
+/* Infrastructure grid */
+.infrastructure-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:16px;
+}
+
+.infrastructure-item{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:14px;
+}
+
+/* Security contact box */
+.security-contact{
+  background:#eef2ff;
+  border:1px solid #c7d2fe;
+  border-radius:14px;
+  padding:20px;
+  font-weight:500;
+}
+
+/* =========================
+   7) Contact Form
    ========================= */
 .contact-form{
   background:#fff;
@@ -157,19 +238,16 @@ body{
   border-radius:14px;
   padding:18px;
 
-  /* Keep it strict and consistent */
   display:grid;
   grid-template-columns:1fr;
   gap:14px;
 }
 
-/* Labels should not influence input width */
 .contact-form label{
   display:block;
-  gap:6px; /* harmless if browser ignores, kept from your original intent */
+  gap:6px;
 }
 
-/* Make ALL fields full width and consistent */
 .contact-form input,
 .contact-form textarea{
   width:100%;
@@ -180,14 +258,13 @@ body{
   box-sizing:border-box;
 }
 
-/* Make textarea visually consistent and professional */
 .contact-form textarea{
   min-height:120px;
   resize:vertical;
 }
 
 /* =========================
-   7) Footer
+   8) Footer
    ========================= */
 .site-footer{
   border-top:1px solid var(--border);
@@ -197,53 +274,69 @@ body{
 }
 
 /* =========================
-   8) Responsive
+   9) Responsive
    ========================= */
 @media (max-width:900px){
-  .grid.two{ grid-template-columns:1fr; }
-  .cards.three{ grid-template-columns:1fr 1fr; }
+
+  .grid.two{
+    grid-template-columns:1fr;
+  }
+
+  .cards.three{
+    grid-template-columns:1fr 1fr;
+  }
+
 }
 
 @media (max-width:640px){
-  .nav{ display:none; }
-  .cards.three{ grid-template-columns:1fr; }
-  .hero{ padding:56px 0; }
+
+  .nav{
+    display:none;
+  }
+
+  .cards.three{
+    grid-template-columns:1fr;
+  }
+
+  .hero{
+    padding:56px 0;
+  }
+
 }
 
 /* =========================
-   9) partner logo
+   10) Partner Logo Grid
    ========================= */
-.partner-logos {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 2rem;
-  margin-top: 2rem;
-  align-items: center;
+.partner-logos{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+  gap:2rem;
+  margin-top:2rem;
+  align-items:center;
 }
 
-.partner-logo-item {
-  text-align: center;
+.partner-logo-item{
+  text-align:center;
 }
 
-.partner-logo-item img {
-  max-width: 160px;
-  max-height: 80px;
-  width: auto;
-  height: auto;
-  margin: 0 auto 0.75rem;
-  display: block;
-  filter: grayscale(100%);
-  opacity: 0.85;
+.partner-logo-item img{
+  max-width:160px;
+  max-height:80px;
+  width:auto;
+  height:auto;
+  margin:0 auto 0.75rem;
+  display:block;
+  filter:grayscale(100%);
+  opacity:0.85;
 }
 
-.partner-logo-item img:hover {
-  filter: none;
-  opacity: 1;
+.partner-logo-item img:hover{
+  filter:none;
+  opacity:1;
 }
 
-.partner-role {
-  display: block;
-  font-size: 0.85rem;
-  color: var(--muted, #6b7280);
+.partner-role{
+  display:block;
+  font-size:0.85rem;
+  color:var(--muted);
 }
-
